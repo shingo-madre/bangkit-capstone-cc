@@ -7,9 +7,14 @@ const firestore = firebase.firestore();
 
 const addCropData = async function(req, res) {
     try {
-		const cropData = req.body; //date, location, crops
-		await firestore.collection('data').doc().set(cropData);
-		res.send('Received User Data!');
+		const { date, crops, location } = req.body;
+
+		await firestore.collection('data').doc().set({
+			"date": date,
+			"crops": crops,
+			"location": location
+		});
+		res.send('Received User Crop Data!');
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
@@ -17,11 +22,11 @@ const addCropData = async function(req, res) {
 
 const getAllCropData = async (req, res, next) => {
 	try {
-		const cropData = await firestore.collection('users');
+		const cropData = await firestore.collection('crops');
 		const data = await cropData.get();
 		const cropDataArray = [];
 		if (data.empty) {
-			res.status(404).send('No student record found');
+			res.status(404).send('Data not found!');
 		} else {
 			data.forEach(doc => {
 				const cropData = new CropData(
