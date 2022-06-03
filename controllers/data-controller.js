@@ -3,13 +3,13 @@
 const firebase = require('../db');
 const CropData = require('../models/crop');
 const UserData = require('../models/crop');
-const firestore = firebase.firestore();
+// const firestore = firebase.firestore();
 
 const addCropData = async function(req, res) {
     try {
 		const { date, crops, location } = req.body;
 
-		await firestore.collection('data').doc().set({
+		await firebase.collection('data').doc().set({
 			"date": date,
 			"crops": crops,
 			"location": location
@@ -22,20 +22,20 @@ const addCropData = async function(req, res) {
 
 const getAllCropData = async (req, res, next) => {
 	try {
-		const cropData = await firestore.collection('crops');
+		const cropData = await firebase.collection('data');
 		const data = await cropData.get();
 		const cropDataArray = [];
 		if (data.empty) {
 			res.status(404).send('Data not found!');
 		} else {
 			data.forEach(doc => {
-				const cropData = new CropData(
+				const dataNew = new CropData(
 					doc.id,
 					doc.data().date,
 					doc.data().crops,
 					doc.data().location
 				);
-				cropDataArray.push(cropData);
+				cropDataArray.push(dataNew);
 			});
 			res.send(cropDataArray);
 		}

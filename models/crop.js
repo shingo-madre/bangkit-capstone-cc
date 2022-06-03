@@ -1,5 +1,5 @@
 class CropData {
-    constructor(id, date, crops, land_size) {
+    constructor(id, date, crops, location) {
         this.id = id;
         this.date = date;
         this.crops = crops;
