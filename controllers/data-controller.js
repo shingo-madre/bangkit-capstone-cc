@@ -62,8 +62,8 @@ const getCropDataById = async function(req, res) {
 const deleteCropDataById = async (req, res, next) => {
 	try {
 		const id = req.params.id;
-		await firestore.collection('users').doc(id).delete();
-		res.send('User successfuly deleted');
+		await firestore.collection('data').doc(id).delete();
+		res.send('Data successfuly deleted');
 	} catch (error) {
 		res.status(400).send(error.message);
 	}

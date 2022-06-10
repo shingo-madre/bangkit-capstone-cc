@@ -5,6 +5,7 @@ const {
     getCropDataById,
     deleteCropDataById,
 } = require('../controllers/data-controller');
+const requireAuth = require('../middleware/authMIddleware');
 
 const router = express.Router();
 
