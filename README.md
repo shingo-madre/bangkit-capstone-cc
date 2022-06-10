@@ -13,7 +13,7 @@ This section is used to move crop/plants data from **user input** to **database*
 
 ## Detailed Explanation
 ### data/addData (POST)
-This route is used to add crop data that is given by the user from the mobile application to the database. If there's an error. the API wil send an error message with status 400**, but if there is nothing wrond and the data was able to be added to the database succesfully the API wil send a message that read *Received User Crop Data!*
+This route is used to add crop data that is given by the user from the mobile application to the database. If there's an error. the API wil send an error message with status 400, but if there is nothing wrond and the data was able to be added to the database succesfully the API wil send a message that read *Received User Crop Data!*
 ### data/cropDataList (GET)
 This route is used to get all the available data on the database. It will return all the data in JSON form. If there's an error while performing this route it will send a status of 400 with the error message
 ### data/cropData/:id (GET)
