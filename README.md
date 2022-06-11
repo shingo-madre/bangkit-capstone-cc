@@ -1,20 +1,24 @@
 # bangkit-capstone-cc
 This is the documentation for this API
 
+## Login
+This section is used to login and get token for user. You should post the username and password to JSON body. Here for the route:
+1. '/login' (POST)
+
 ## Users 
 This section is used to manipulate user data such as adding new user, get user, get all user, update user, and delete user. There are 5 routes that can be used such as:
-1. 'api/user' (POST)
-2. 'api/users' (GET)
-3. 'api/user/:id' (GET)
-4. 'api/user/:id' (PUT)
-5. 'api/user/:id' (DELETE)
+1. '/api/user' (POST)
+2. '/api/users' (GET)
+3. '/api/user/:id' (GET)
+4. '/api/user/:id' (PUT)
+5. '/api/user/:id' (DELETE)
 
 ## Crop Data 
 This section is used to move crop/plants data from **user input** to **database** to **machine learning model** and **back to user**. There are 4 routes that can be used, those routes are as follows:
-1. 'data/addData' (POST)
-3. 'data/cropDataList' (GET)
-4. 'data/cropData/:id' (GET)
-5. 'data/cropData/:id' (DELETE)
+1. '/data/addData' (POST)
+3. '/data/cropDataList' (GET)
+4. '/data/cropData/:id' (GET)
+5. '/data/cropData/:id' (DELETE)
 
 ## Detailed Explanation
 ### data/addData (POST)
