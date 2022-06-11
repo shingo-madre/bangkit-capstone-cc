@@ -11,7 +11,10 @@ const addUser = async (req, res, next) => {
 	try {
 		const data = req.body;
 		await firebase.collection('users').doc().set(data);
-		res.send('Data successfuly added');
+		res.send({
+			"error": false,
+			"message": "User Created"
+		});
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
@@ -34,7 +37,11 @@ const getAllUsers = async (req, res, next) => {
 				);
 				usersArray.push(user);
 			});
-			res.send(usersArray);
+			res.send({
+				"error" : false,
+				"message" : "success",
+				"listUser" : usersArray
+			});
 		}
 	} catch (error) {
 		res.status(400).send(error.message);
@@ -49,7 +56,11 @@ const getUser = async (req, res, next) => {
 		if (!data.exists) {
 			res.status(404).send('User with the given ID not found');
 		} else {
-			res.send(data.data());
+			res.send({
+				"error" : false,
+				"message" : "success",
+				"user" : data.data() 
+			});
 		}
 	} catch (error) {
 		res.status(400).send(error.message);
@@ -62,7 +73,10 @@ const updateUser = async (req, res, next) => {
 		const data = req.body;
 		const user = await firebase.collection('users').doc(id);
 		await user.update(data);
-		res.send('User successfuly updated');
+		res.send({
+			"error" : false,
+			"message" : 'User successfuly updated',
+		});
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
@@ -72,7 +86,10 @@ const deleteUser = async (req, res, next) => {
 	try {
 		const id = req.params.id;
 		await firestore.collection('users').doc(id).delete();
-		res.send('User successfuly deleted');
+		res.send({
+			"error" : false,
+			"message" : 'User successfuly deleted',
+		});
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
@@ -110,8 +127,13 @@ const loginUser = async (req, res, next) => {
 	);
 
 	return res.status(200).send({
-		'success': true,
-		'token': token
+		"error": false,
+    "message": "success",
+		"loginResult": {
+			"userId": user.id,
+			"name": user.username,
+			'token': token
+		}
 	})
 }
 

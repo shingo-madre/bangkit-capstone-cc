@@ -2,8 +2,6 @@
 
 const firebase = require('../db');
 const CropData = require('../models/crop');
-const UserData = require('../models/crop');
-// const firestore = firebase.firestore();
 
 const addCropData = async function(req, res) {
   try {
@@ -14,7 +12,10 @@ const addCropData = async function(req, res) {
 			"crops": crops,
 			"location": location
 		});
-		res.send('Received User Crop Data!');
+		res.send({
+			"error": false,
+			"message": "Received User Crop Data!"
+		});
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
@@ -37,7 +38,11 @@ const getAllCropData = async (req, res, next) => {
 				);
 				cropDataArray.push(dataNew);
 			});
-			res.send(cropDataArray);
+			res.send({
+				"error" : false,
+				"message" : "success",
+				"listCropData" : cropDataArray
+			});
 		}
 	} catch (error) {
 		res.status(400).send(error.message);
@@ -52,7 +57,11 @@ const getCropDataById = async function(req, res) {
 		if (!data.exists) {
 			res.status(404).send('Data with given ID not found!');
 		} else {
-			res.send(data.data());
+			res.send({
+				"error" : false,
+				"message" : "success",
+				"cropData" : data.data()
+			});
 		}
 	} catch (error) {
 		res.status(400).send(error.message);
@@ -63,7 +72,10 @@ const deleteCropDataById = async (req, res, next) => {
 	try {
 		const id = req.params.id;
 		await firebase.collection('data').doc(id).delete();
-		res.send('Data successfuly deleted');
+		res.send({
+			"error" : false,
+			"message" : 'Data successfuly deleted'
+		});
 	} catch (error) {
 		res.status(400).send(error.message);
 	}
