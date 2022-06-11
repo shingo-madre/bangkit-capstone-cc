@@ -47,7 +47,7 @@ const getAllCropData = async (req, res, next) => {
 const getCropDataById = async function(req, res) {
     try {
 		const id = req.params.id;
-		const dcropData = await firestore.collection('data').doc(id);
+		const cropData = await firebase.collection('data').doc(id);
 		const data = await cropData.get();
 		if (!data.exists) {
 			res.status(404).send('Data with given ID not found!');
@@ -62,7 +62,7 @@ const getCropDataById = async function(req, res) {
 const deleteCropDataById = async (req, res, next) => {
 	try {
 		const id = req.params.id;
-		await firestore.collection('data').doc(id).delete();
+		await firebase.collection('data').doc(id).delete();
 		res.send('Data successfuly deleted');
 	} catch (error) {
 		res.status(400).send(error.message);
