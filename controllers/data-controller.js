@@ -6,7 +6,7 @@ const UserData = require('../models/crop');
 // const firestore = firebase.firestore();
 
 const addCropData = async function(req, res) {
-    try {
+  try {
 		const { date, crops, location } = req.body;
 
 		await firebase.collection('data').doc().set({

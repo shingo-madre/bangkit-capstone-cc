@@ -23,7 +23,7 @@ const getAllUsers = async (req, res, next) => {
 		const data = await users.get();
 		const usersArray = [];
 		if (data.empty) {
-			res.status(404).send('No student record found');
+			res.status(404).send('No User record found');
 		} else {
 			data.forEach(doc => {
 				const user = new User(
@@ -82,17 +82,22 @@ const loginUser = async (req, res, next) => {
 	const { username, password } = req.body
 
 	const userRef = firebase.collection('users');
-	const userQuery = await userRef.where('username', '==', username);
+	const userQuery = await userRef.where('username', '==', username).get();
 
 	if (userQuery.empty) {
 		return res.status(404).send('Username not found')
 	}
 
-	const user = {
-		id: userQuery.doc[0].id,
-		...userQuery.doc[0].data()
-	}
+	let user = {};
 
+	userQuery.forEach(doc => {
+		user = {
+			id: doc.id,
+			...doc.data()
+		}
+	});	
+
+	console.log(user);
 	//check if password is the same
 	if (user.password !== password) {
 		return res.status(404).send('Password is wrong')
@@ -104,7 +109,10 @@ const loginUser = async (req, res, next) => {
 	}, process.env.ACCESS_TOKEN_SECRET
 	);
 
-	return res.status(200).send(token)
+	return res.status(200).send({
+		'success': true,
+		'token': token
+	})
 }
 
 module.exports = {

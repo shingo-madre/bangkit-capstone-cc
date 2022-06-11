@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "protean-torus-344012",
+  "private_key_id": "3d77ed15505c0e3e66f57a98d7494f271a21a2ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDhjyXGfJp/trxl\nbLE+LQxHIhiWXWWonkLsrqZLBSg1BT3QVKrme4Bep3SJkn4WCn7YHgsrWQx03PpO\nl7nrlpp51+QegA9WGDAZWkGf9pKTgch/V+SR/kG0lXSvQkR7AKh1jb9CewCTKYNK\n7rcYPLb0ECN6SdsuXdZYHmlgwNYGd+KpaDd+z6N6XpI/iZ/hB85ugPBlghxuasHj\nA2fdf4jqtmwTRF+WExaBb8zvtg4A8GE8EhYeR2kEE0sXe97dBnOiZG8rSJ8NpiOT\nMQB7g4SOjFHAcqmVnVH6E7ArvlkuBhLZqfe33OUwArg16xLN21cyybn0J5lkE5Ja\nZqywdr0HAgMBAAECggEASSWH5Y9g9wvGmsmdzQEE20iWWqTdI8p2/5Q/v1Jj0JXr\njtT2OxpP7eI2K6sDEpjCu8k6bAtLu9Yxoi0YEOtdGyhFBRMYZh4f8wjPAVYQAJ/0\n6j8Rk7q1ih9xoKhH1u/GsaCPJrsG27J5rmItpEGEPy/AoZaz6pxpt1fdao/+mEfK\njI2jeFOl9l40CQn9af7IwNv5TZuW2/bWi70otrneL79A9FjbjmbUjpuVALW1DFgy\nd/cTYSkEDuQdnG5FTJ4AZz2GUUJT+jR8IZmGXifKADWjYsD4hMMh2SdLS+L8qDIe\nx/GcNNgzXJnSd7FtpRWLyaOQj81eb0PzbhSVqy4hMQKBgQD65LCLRHjJgf9YM+gQ\nukViv4VzhLk67rQw7zUCANZhq+JH705KVVSzyibBaLxIisKRxsopVGZ+LMlJu1WC\nt0Ouab9oJNecsUaPaQX7akiJ65RWzyv7Q6lSbQeXtkk40iin7B6Mr0Q/YlcIxlN3\nIjU6spD/WKnSKRd9XQX9/TU+iQKBgQDmJnOFFLVImDY+WtElGrAHyJsr0V4wgn/Q\nXT4pTJ2H1GooXHTNJXG6vPgUsLRL73Xws4yE5P/94sQmt9QX6XIy4RmPP6xXgMfp\nX2BkpqzdtCM9cLAGv5HxEao4ueVVm/LrPxAYjbRiuaYn2N6yGtZXrW+FVqD75amr\n24Sazdq7DwKBgCch8F9oiKZ1fkxVnEavpw7l7Hy+IN4OSVCwnsX3N3j4hEzQCJgT\ngyifyTe1jFiMPBjctr+HiIz5k1PKwmWnDAlyOQaXaIHqLKVFrkcupq3MbtCzc5q3\nTPusQdjp97XDIdA/ReyPkceJISYfOPmF/mNvYqpRO/upqR5Gmh6pldpxAoGAMN+H\ndoJAQOs50aH9edCiAvUhpntucgS0Wa4DTkfbyAVeibWghBPog8wvLk2b6+gs9nFa\nbLoodmSaXNJ6sp07R/yvLdFKqsZJLZC4aodOfEINnbV5W+WAe13R9Pvc7IISYsxg\ngaZN4Q0lcJ7II7A5RiMpZHpR80wA7OLP1QPT6BcCgYEAhpUOcapkk8+856o3BzaK\nxWAhPvuDnFI/nrP4t74RpzhNCWpubCKWmRXQwBUiXUKuBlC5570aIV0Apts9C0YD\nPsbRmZYZz71OkeWa2E5SmRFoCsowWtnRCda4qf0lQ9Y8JYusnhaBF1js6J081Ruo\n2Iw138tAnaqDHA5aPkZdqyo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firestore-service-acc@protean-torus-344012.iam.gserviceaccount.com",
+  "client_id": "114464864764116814475",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firestore-service-acc%40protean-torus-344012.iam.gserviceaccount.com"
+}
