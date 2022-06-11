@@ -16,7 +16,10 @@ const addUser = async (req, res, next) => {
 			"message": "User Created"
 		});
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -26,7 +29,10 @@ const getAllUsers = async (req, res, next) => {
 		const data = await users.get();
 		const usersArray = [];
 		if (data.empty) {
-			res.status(404).send('No User record found');
+			res.status(404).send({
+				"error" : true,
+				"message" : 'No User record found'
+			});
 		} else {
 			data.forEach(doc => {
 				const user = new User(
@@ -44,7 +50,10 @@ const getAllUsers = async (req, res, next) => {
 			});
 		}
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -54,7 +63,10 @@ const getUser = async (req, res, next) => {
 		const user = await firebase.collection('users').doc(id);
 		const data = await user.get();
 		if (!data.exists) {
-			res.status(404).send('User with the given ID not found');
+			res.status(404).send({
+				"error" : true,
+				"message" : 'User with the given ID not found'
+			});
 		} else {
 			res.send({
 				"error" : false,
@@ -63,7 +75,10 @@ const getUser = async (req, res, next) => {
 			});
 		}
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -78,7 +93,10 @@ const updateUser = async (req, res, next) => {
 			"message" : 'User successfuly updated',
 		});
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -91,7 +109,10 @@ const deleteUser = async (req, res, next) => {
 			"message" : 'User successfuly deleted',
 		});
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -102,7 +123,10 @@ const loginUser = async (req, res, next) => {
 	const userQuery = await userRef.where('username', '==', username).get();
 
 	if (userQuery.empty) {
-		return res.status(404).send('Username not found')
+		return res.status(404).send({
+			"error" : true,
+			"message" : 'Username not found'
+		})
 	}
 
 	let user = {};
@@ -117,7 +141,10 @@ const loginUser = async (req, res, next) => {
 	console.log(user);
 	//check if password is the same
 	if (user.password !== password) {
-		return res.status(404).send('Password is wrong')
+		return res.status(404).send({
+			"error" : true,
+			"message" : 'Password is wrong'
+		})
 	}
 
 	const token = jwt.sign({

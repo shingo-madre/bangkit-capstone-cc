@@ -17,7 +17,10 @@ const addCropData = async function(req, res) {
 			"message": "Received User Crop Data!"
 		});
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -27,7 +30,10 @@ const getAllCropData = async (req, res, next) => {
 		const data = await cropData.get();
 		const cropDataArray = [];
 		if (data.empty) {
-			res.status(404).send('Data not found!');
+			res.status(404).send({
+				"error" : true,
+				"message" : 'Data not found!'
+			});
 		} else {
 			data.forEach(doc => {
 				const dataNew = new CropData(
@@ -45,7 +51,10 @@ const getAllCropData = async (req, res, next) => {
 			});
 		}
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -55,7 +64,10 @@ const getCropDataById = async function(req, res) {
 		const cropData = await firebase.collection('data').doc(id);
 		const data = await cropData.get();
 		if (!data.exists) {
-			res.status(404).send('Data with given ID not found!');
+			res.status(404).send({
+				"error" : true,
+				"message" : 'Data with given ID not found!'
+			});
 		} else {
 			res.send({
 				"error" : false,
@@ -64,7 +76,10 @@ const getCropDataById = async function(req, res) {
 			});
 		}
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
@@ -77,7 +92,10 @@ const deleteCropDataById = async (req, res, next) => {
 			"message" : 'Data successfuly deleted'
 		});
 	} catch (error) {
-		res.status(400).send(error.message);
+		res.status(400).send({
+			"error" : true,
+			"message" : error.message
+		});
 	}
 }
 
