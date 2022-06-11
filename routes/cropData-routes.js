@@ -5,14 +5,14 @@ const {
     getCropDataById,
     deleteCropDataById,
 } = require('../controllers/data-controller');
-const requireAuth = require('../middleware/authMIddleware');
+const requireAuth = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/addData', addCropData);
-router.get('/cropDataList', getAllCropData);
-router.get('/cropData/:id', getCropDataById);
-router.delete('/cropData/:id', deleteCropDataById);
+router.post('/addData', requireAuth, addCropData);
+router.get('/cropDataList', requireAuth, getAllCropData);
+router.get('/cropData/:id', requireAuth, getCropDataById);
+router.delete('/cropData/:id', requireAuth, deleteCropDataById);
 
 module.exports = {
     routes: router
