@@ -78,7 +78,7 @@ const deleteUser = async (req, res, next) => {
 	}
 }
 
-const loginUser = async (req, res, next) {
+const loginUser = async (req, res, next) => {
 	const { username, password } = req.body
 
 	const userRef = firebase.collection('users');
@@ -89,7 +89,7 @@ const loginUser = async (req, res, next) {
 	}
 
 	const user = {
-		id = userQuery.doc[0].id,
+		id: userQuery.doc[0].id,
 		...userQuery.doc[0].data()
 	}
 
